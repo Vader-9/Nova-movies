@@ -17,9 +17,12 @@ function App() {
 
 
   const [films, setFilms] = useState(dummyShowsData);
+  console.log(films)
 
   return (
-    <div className='bg-black'>
+    
+    <div className='bg-black min-h-screen'>
+
      <Toaster/>
          {!isAdminRoute && <Nav/> }
          <Routes>

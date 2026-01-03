@@ -2,7 +2,7 @@ import { assets } from "../assets/assets";
 
 function Footer() {
   return (
-    <footer className="bg-black text-white px-6 md:px-16 py-12">
+    <footer className="bg-black text-white px-6 md:px-36 py-12">
       
       {/* TOP SECTION */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">

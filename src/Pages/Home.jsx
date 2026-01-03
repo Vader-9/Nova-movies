@@ -91,7 +91,7 @@ function Home() {
 
                     <div className="flex items-center gap-1">
                       <Star className="text-yellow-500" />
-                      <p>{film.vote_average ?? "N/A"}</p>
+                      <p>{film.vote_average.toFixed(1) ?? "N/A"}</p>
                     </div>
                   </div>
                 </Link>
