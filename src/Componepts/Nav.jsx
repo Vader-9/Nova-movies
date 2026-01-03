@@ -9,7 +9,7 @@ function Nav() {
   return (
     <>
       {/* NAVBAR */}
-      <nav className="fixed top-0 left-0 z-40 w-full flex items-center justify-between px-6 md:px-16 lg:px-36 py-5 ">
+      <nav className="fixed top-0 left-0 z-40 w-full  flex items-center justify-between px-6 md:px-16 lg:px-36 py-5 ">
         
         {/* Logo */}
         <Link to="/" className="flex-shrink-0">

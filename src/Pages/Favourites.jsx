@@ -1,14 +1,22 @@
 import React from 'react'
 import { Star, X } from 'lucide-react'
 
-function Favourites({ favourites, setFavorites }) {
+function Favourites({ favourites, setFavourites }) {
 
     console.log(favourites)
 
     const removeFromFavourites = (id) => {
-    
-            setFavorites((prev) => prev.filter((film) => film.id !== id));
-        
+
+            setFavourites((prev) => prev.filter((film) => film.id !== id));
+
+    }
+
+    if(favourites.length === 0){
+        return(
+            <div className='h-screen d flex justify-center items-center'>
+                <p className='text-white'>No favourites</p>
+            </div>
+        )
     }
 
     return (
