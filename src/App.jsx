@@ -18,6 +18,8 @@ function App() {
 
   const [films, setFilms] = useState(dummyShowsData);
   console.log(films)
+  // to add to favourites
+  const [favourites, setFavourites] = useState([])
 
   return (
     
@@ -28,10 +30,10 @@ function App() {
          <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/movies' element={<Movies films={films} />}/>
-            <Route path='/movies/:id' element={<MovieDetails films={films} />}/>
+            <Route path='/movies/:id' element={<MovieDetails films={films} favourites={favourites}  setFavourites={setFavourites} />}/>
             <Route path='/movies/:id/:date' element={<Seatlayout/>}/>
             <Route path='/mybookings' element={<Mybookings/>}/>
-            <Route path='/favourites' element={<Favourites/>}/>
+            <Route path='/favourites' element={<Favourites favourites={favourites} setFavourites={setFavourites} />}/>
          </Routes>
          {!isAdminRoute && <Footer/> }
       

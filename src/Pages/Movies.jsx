@@ -4,7 +4,7 @@ import { ArrowRight, Star } from 'lucide-react';
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-function Movies({films}){
+function Movies({films, }){
 const navigate = useNavigate();
     
 

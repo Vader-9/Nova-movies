@@ -1,11 +1,16 @@
 import { useParams } from "react-router-dom";
 import { CirclePlay, Heart, Star } from "lucide-react";
 import { Link } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { useState } from "react";
 
-function MovieDetails({ films }) {
+function MovieDetails({ films,favourites, setFavourites }) {
 
   const { id } = useParams();
   console.log(id);
+
+  // state for heart colour
+  const [heart, setHeart] = useState(false);
 
   const filmDetails = films.find(
     (item) => item.id === Number(id)
@@ -14,8 +19,23 @@ function MovieDetails({ films }) {
   const similarFilms = films.filter(
     (item) => filmDetails.genres[0].name  === item.genres[0].name && filmDetails.id !== item.id
   )
-
   console.log(similarFilms);
+
+  const addFavourites = (id)=>{
+      const already = favourites.find((film) => film.id === id);
+      
+      if(already){
+        setFavourites((prev) => prev.filter((film) => film.id !== id));
+        toast.error("Removed from favourites")
+      }else{
+        setFavourites((prev) => [...prev, filmDetails]);
+        toast.success("Added to favourites")
+      }
+
+      setHeart(!heart);
+  }
+
+  
 
   return (
     <div className="p-5 flex flex-col items-center text-white mt-20 mb-10 md:p-16">
@@ -49,11 +69,11 @@ function MovieDetails({ films }) {
 
               {/* Favorite */}
               <div className="flex items-center justify-center bg-gray-700 hover:bg-gray-600 transition p-3 rounded-full cursor-pointer">
-                <Heart className="w-5 h-5" />
+                <Heart className={`w-5 h-5 ${heart ? "fill-red-500" : "fill-none"} ${heart ? "text-red-500" : "text-white"}`} onClick={()=>addFavourites(filmDetails.id)} />
               </div>
             </div>
 
-          </div>
+          </div> 
         </div>
       </div>
 

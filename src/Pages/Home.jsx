@@ -35,9 +35,11 @@ function Home() {
             conspiracy.
           </p>
 
+          <Link to='/movies'>
           <button className="mt-6 px-6 py-2 bg-primary hover:bg-primary-dull transition rounded-full font-medium">
             Explore movies
           </button>
+          </Link>
         </div>
       </div>
 
