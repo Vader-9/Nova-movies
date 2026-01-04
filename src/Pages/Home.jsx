@@ -135,7 +135,7 @@ function Home() {
         {
           dummyTrailers.map((trailer, index) =>(
             <div key={index} onClick={() => setPlay(trailer.videoUrl)} className="cursor-pointer hover:scale-105 transition">
-              <img src={trailer.image} alt="" className="border-sm w-50 h-30"/>
+              <img src={trailer.image} alt="" className="border-sm w-50 h-30 rounded-lg"/>
 
             </div>
           ))
