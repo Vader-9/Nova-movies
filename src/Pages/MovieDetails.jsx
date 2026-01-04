@@ -111,8 +111,8 @@ function MovieDetails({ films,favourites, setFavourites }) {
             <div className='flex justify-center text-center '>
               <div className='grid grid-cols-1  gap-5 md:grid-cols-4 md:rows-2'>
                 {similarFilms.map((film) => (
-                  <Link key={film.id}
-                    to={`/movies/${film.id}`} className='p-2  w-70 h-100 hover:scale-105 transition-transform rounded-lg bg-blue-1000 text-white shadow-xl shadow-black/40 rounded-4xl p-4'>
+                  <div key={film.id}
+                     className='p-2  w-70 h-100 hover:scale-105 transition-transform rounded-lg bg-blue-1000 text-white shadow-xl shadow-black/40 rounded-4xl p-4'>
                     <img src={film.poster_path} alt={film.title} className="w-full aspect-[3/3] object-cover rounded-lg" />
                     <h1>{film.title}</h1>
                     <div className='w-full flex justify-between text-center  '>
@@ -127,7 +127,7 @@ function MovieDetails({ films,favourites, setFavourites }) {
                         <p>{film.vote_average}</p>
                       </div>
                     </div>
-                  </Link>
+                  </div>
                 ))}
               </div>
 
