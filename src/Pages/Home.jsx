@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { Star, Play } from "lucide-react";
+import { Star } from "lucide-react";
 import { dummyShowsData, dummyTrailers } from "../assets/assets";
 import { assets } from "../assets/assets";
 import ReactPlayer from 'react-player'
-import { useState, } from "react";
+import { useState,  } from "react";
 
 function Home() {
 
@@ -29,7 +29,7 @@ function Home() {
           />
 
           <h1 className="text-4xl md:text-6xl font-bold">
-            Guardians of the Galaxy
+            Guardians of the Galaxy 
           </h1>
 
           <div className="flex gap-4 mt-4 text-sm md:text-base">
@@ -128,31 +128,20 @@ function Home() {
 
           }}
         />
-
+       
       </div>
-
+      
       <div className="w-full flex flex-col justify-center text-center p-5 gap-5 md:flex-row">
         {
-          dummyTrailers.map((trailer, index) => (
-            <div
-              key={index}
-              onClick={() => setPlay(trailer.videoUrl)}
-              className="cursor-pointer hover:scale-105 transition relative"
-            >
-              <img
-                src={trailer.image}
-                alt=""
-                className="border-sm w-50 h-30 rounded-lg"
-              />
+          dummyTrailers.map((trailer, index) =>(
+            <div key={index} onClick={() => setPlay(trailer.videoUrl)} className="cursor-pointer hover:scale-105 transition">
+              <img src={trailer.image} alt="" className="border-sm w-50 h-30"/>
 
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Play className="w-12 h-12 text-white opacity-80" />
-              </div>
             </div>
           ))
         }
       </div>
-
+     
     </div>
   );
 }
