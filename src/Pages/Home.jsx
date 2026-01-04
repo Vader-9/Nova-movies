@@ -1,9 +1,18 @@
 import { Link } from "react-router-dom";
-import { Star } from "lucide-react";
-import { dummyShowsData } from "../assets/assets";
+import { Star, Play } from "lucide-react";
+import { dummyShowsData, dummyTrailers } from "../assets/assets";
 import { assets } from "../assets/assets";
+import ReactPlayer from 'react-player'
+import { useState, } from "react";
 
 function Home() {
+
+  //console.log(dummyTrailers);
+
+  const [play, setPlay] = useState('https://www.youtube.com/watch?v=1pHDWnXmK7Y');
+
+  //function handlePlay() {}
+
   return (
     <div className="flex flex-col text-white">
 
@@ -36,9 +45,9 @@ function Home() {
           </p>
 
           <Link to='/movies'>
-          <button className="mt-6 px-6 py-2 bg-primary hover:bg-primary-dull transition rounded-full font-medium">
-            Explore movies
-          </button>
+            <button className="mt-6 px-6 py-2 bg-primary hover:bg-primary-dull transition rounded-full font-medium">
+              Explore movies
+            </button>
           </Link>
         </div>
       </div>
@@ -106,6 +115,44 @@ function Home() {
           </button>
         </div>
       </div>
+
+      <div className="w-full h-140  flex  justify-center text-center p-5">
+        <ReactPlayer
+          slot="media"
+          src={play}
+          //light='https://img.youtube.com/vi/WpW36ldAqnM/maxresdefault.jpg'
+          controls={true}
+          style={{
+            width: "70%",
+            height: "100%",
+
+          }}
+        />
+
+      </div>
+
+      <div className="w-full flex flex-col justify-center text-center p-5 gap-5 md:flex-row">
+        {
+          dummyTrailers.map((trailer, index) => (
+            <div
+              key={index}
+              onClick={() => setPlay(trailer.videoUrl)}
+              className="cursor-pointer hover:scale-105 transition relative"
+            >
+              <img
+                src={trailer.image}
+                alt=""
+                className="border-sm w-50 h-30 rounded-lg"
+              />
+
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Play className="w-12 h-12 text-white opacity-80" />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
     </div>
   );
 }

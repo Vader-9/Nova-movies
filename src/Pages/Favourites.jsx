@@ -41,7 +41,7 @@ function Favourites({ favourites, setFavourites }) {
 
                                         {/* X ICON (TOP RIGHT) */}
                                         <X
-                                            className="absolute top-2 right-2 w-6 h-6 text-white bg-black/50 backdrop-blur-md rounded-full p-1 cursor-pointer hover:bg-black/70 transition"
+                                            className="absolute top-2 right-2 w-6 h-6 text-white bg-red/50 backdrop-blur-md rounded-full p-1 cursor-pointer hover:bg-black/70 transition"
                                             onClick={() => removeFromFavourites(film.id)}
                                         />
                                     </div>
